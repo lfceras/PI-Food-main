@@ -23,16 +23,29 @@ module.exports = (sequelize) => {
     healthScore: {
       type: DataTypes.INTEGER
      },
-    steps: {
-      type: DataTypes.ARRAY(DataTypes.TEXT)
-    },
     create: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true
     },
+    steps: {
+      type: DataTypes.ARRAY(DataTypes.TEXT),
+      get() {
+        // Al leer desde la base de datos, convertir las cadenas JSON a objetos
+        const steps = this.getDataValue('steps');
+        return steps ? steps.map(step => JSON.parse(step)) : [];
+      },
+      set(value) {
+        // Al guardar en la base de datos, convertir los objetos a cadenas JSON
+        const steps = value ? value.map(step => JSON.stringify(step)) : [];
+        this.setDataValue('steps', steps);
+      }
+    },
   },
   {
-    timestamps:false
+    timestamps:false,
+    attributeOrder: {
+      steps: 2,
+    }
  });
 };

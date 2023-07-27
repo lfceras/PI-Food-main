@@ -1,5 +1,4 @@
-const dta = require('../../Food.json')
-const {Recipe, Diet} = require('../db')
+const {Recipe, Diet} = require('../src/db')
 
 const findByPk = async (id)=>{
   if(id.length > 15){

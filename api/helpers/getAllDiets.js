@@ -1,5 +1,5 @@
-const dta = require("../../Food.json");
-const { Diet } = require("../db");
+const dta = require("./Food.json");
+const { Diet } = require("../src/db");
 
 const getDiets = async () => {
   let data = dta.results.map((el) => {
