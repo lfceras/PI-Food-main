@@ -23,11 +23,6 @@ module.exports = (sequelize) => {
     healthScore: {
       type: DataTypes.INTEGER
      },
-    create: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: true
-    },
     steps: {
       type: DataTypes.ARRAY(DataTypes.TEXT),
       get() {
@@ -40,6 +35,17 @@ module.exports = (sequelize) => {
         const steps = value ? value.map(step => JSON.stringify(step)) : [];
         this.setDataValue('steps', steps);
       }
+    },
+    cuisines: {
+      type: DataTypes.ARRAY(DataTypes.STRING)
+    },
+    dishTypes: {
+      type: DataTypes.ARRAY(DataTypes.STRING)
+    },
+    create: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
     },
   },
   {

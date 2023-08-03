@@ -1,0 +1,24 @@
+.testing {
+  display: flex;
+  flex-direction: column;
+}
+
+.homes {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 65px;
+}
+
+.homes2 {
+  background: rgb(31, 29, 29);
+  margin-top: 3%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,51 @@
+.c_principal{
+  width: 280px; /* Ancho del panel */
+  height: 52vh; /* Altura del panel */
+  position: fixed; /* Fijar el panel en la posición */
+  top: 40%; /* Posición vertical del panel debajo de la barra de navegación */
+  left: 0; /* Posición izquierda del panel */
+  padding: 20px; /* Espacio interno del panel */
+  box-sizing: border-box;
+  z-index: 999;
+  background: lightgray;
+  border-radius: 0px 10px;
+}
+
+.c_principalE{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.c_principalE input{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 678px){
+  .c_principal{
+    width: 280px; /* Ancho del panel */
+    height: 52vh; /* Altura del panel */
+    position: fixed; /* Fijar el panel en la posición */
+    top: 40%; /* Posición vertical del panel debajo de la barra de navegación */
+    left: 0; /* Posición izquierda del panel */
+    padding: 20px; /* Espacio interno del panel */
+    box-sizing: border-box;
+    z-index: 999;
+    background: lightgray;
+    border-radius: 0px 10px;
+  }
+  
+  .c_principalE{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .c_principalE input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}

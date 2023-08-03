@@ -2,7 +2,7 @@ const { Recipe, Diet } = require("../../src/db");
 const { response } = require("../../utils");
 
 module.exports = async (req, res) => {
-  const { name, image, summary, healthScore, steps, diets } = req.body;
+  const { name, image, summary, healthScore, steps, diets, cuisines, dishTypes } = req.body;
   try {
     const checkRecipeExist = async (name) => {
       const existingRecipe = await Recipe.findOne({
@@ -27,6 +27,8 @@ module.exports = async (req, res) => {
       summary,
       healthScore,
       steps,
+      cuisines,
+      dishTypes
     });
     const diet = await Diet.findAll({
       where: { name: diets },
