@@ -9,11 +9,11 @@ export const allRecipes = createSlice({
   reducers: {
     getAllRecipes: (state, action) => {
       state.list = action.payload.sort((a, b) => a.name.localeCompare(b.name));
-    }
+    },
   },
 });
 
-export const { getAllRecipes, sortRecipes } = allRecipes.actions;
+export const { getAllRecipes } = allRecipes.actions;
 
 export default allRecipes.reducer;
 
@@ -22,7 +22,9 @@ export const saveRecipes = (name = null) => {
     try {
       let response;
       if (name) {
-        response = await axios.get(`http://localhost:3001/recipes?name=${name}`);
+        response = await axios.get(
+          `http://localhost:3001/recipes?name=${name}`
+        );
       } else {
         response = await axios.get(`http://localhost:3001/recipes`);
       }

@@ -1,6 +1,6 @@
 .footer{
   background: lightgray;
-  position: static;
+  position: fixed;
   left: 0;
   bottom: 0;
   z-index: 999;
@@ -30,7 +30,7 @@
   position: relative;
 }
 
-@media screen and (max-width: 678px){
+@media screen and (max-width: 778px){
   .redes{
     display: flex;
     align-items: center;

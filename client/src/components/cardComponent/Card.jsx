@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import styles from "./cards.module.css";
 
-const Card = ({ id, name, image, summary, diets, steps, healthScore }) => {
+const Card = ({name, image, summary, healthScore }) => {
   return (
     <div className={styles.span}>
       <div className={styles.cardPrincipal}>

@@ -1,11 +1,22 @@
 import Card from "../cardComponent/Card";
 import Carrousel from "../carrousel1/Carrousel";
 import styles from "./home.module.css";
-import useRecipes from "../../../hooks/useRecipes";
+import Paginado from "../paginado/Paginado";
+import usePaginado from "../../../hooks/usePaginado";
 
 const Home = () => {
-  const { recipes } = useRecipes();
-
+  const {
+    currentPage,
+    currentRecipes,
+    maxPageLimit,
+    minPageLimit,
+    onNextClick,
+    onPrevClick,
+    paginado,
+    recipes,
+    pageNumberLimit,
+    recipesPerPage
+  } = usePaginado();
   return (
     <>
       <div className={styles.testing}>
@@ -14,7 +25,7 @@ const Home = () => {
         </div>
 
         <div className={styles.homes2}>
-          {recipes.map((el) => (
+          {currentRecipes && currentRecipes?.map((el) => (
             <Card
               key={el.id}
               id={el.id}
@@ -26,6 +37,20 @@ const Home = () => {
               healthScore={el.healthScore}
             />
           ))}
+        </div>
+
+        <div className={styles.paginadoes}>
+          <Paginado 
+          recipes={recipes.length}
+          currentPage={currentPage}
+          maxPageLimit={maxPageLimit}
+          minPageLimit={minPageLimit}
+          onNextClick={onNextClick}
+          onPrevClick={onPrevClick}
+          paginado={paginado}
+          pageNumberLimit={pageNumberLimit}
+          recipesPerPage={recipesPerPage}
+          />
         </div>
       </div>
     </>
