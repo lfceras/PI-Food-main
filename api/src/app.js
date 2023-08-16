@@ -2,7 +2,9 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const routes = require('./routes/index.js');
+const routes = require('./routes/recipes.routes');
+const auth = require('./routes/auth.routes');
+const diets = require('./routes/diets.routes');
 const handlers = require('../utils/errors/handlers')
 
 require('./db.js');
@@ -23,7 +25,9 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use('/', routes);  
+server.use('/recipes', routes);  
+server.use('/auth', auth);  
+server.use('/diets', diets);  
 
 server.use('*', handlers.notFoundHandler )
 server.use(handlers.errorHandler)

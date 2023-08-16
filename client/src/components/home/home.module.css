@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.testing h1{
+  font-family: "Righteous", cursive;
+}
+
 .homes {
   width: 100%;
   margin-left: auto;
@@ -10,8 +14,9 @@
   margin-top: 65px;
 }
 
+
+
 .homes2 {
-  background: rgb(31, 29, 29);
   margin-top: 3%;
   display: flex;
   margin-left: auto;
@@ -37,8 +42,8 @@
   }
   
   .homes2 {
-    margin-top: 6%;
-    margin-bottom: 18%;
+    margin-top: 1%;
+    margin-bottom: 20%;
     display: flex;
     margin-left: auto;
     margin-right: auto;

@@ -1,0 +1,266 @@
+.principal_con {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  margin-bottom: 7%;
+  padding-bottom: 6%;
+}
+
+.principal_con span {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Righteous", cursive;
+}
+
+.inter_content {
+  background-color: blue;
+  width: 90%;
+  height: auto;
+  margin-top: 13%;
+  box-sizing: border-box;
+}
+
+.summary {
+  background-color: white;
+  width: 94%;
+  font-size: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2px;
+  margin-top: 10px;
+}
+
+.inter_content p {
+  text-align: justify;
+  font-family: "Preahvihear", sans-serif;
+}
+
+.container_title {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+  padding: 6px;
+  box-sizing: border-box;
+  object-fit: cover;
+  margin-top: 7px;
+  padding-right: 16px;
+}
+
+.container_title span {
+  font-size: 21px;
+}
+
+.container_title img {
+  border-radius: 20px;
+  width: 230px;
+}
+
+.container_cuisines {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
+  width: 94%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.cuisines {
+  background-color: lightgoldenrodyellow;
+  box-sizing: border-box;
+  width: 47%;
+}
+
+.cuisines ul {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  font-family: "Preahvihear", sans-serif;
+}
+
+.dishTypes {
+  background-color: aquamarine;
+  width: 47%;
+  padding: 3px;
+}
+
+.dishTypes ul {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  font-family: "Preahvihear", sans-serif;
+}
+
+.diets{
+  background-color: bisque;
+  margin-top: 10px;
+  width: 94%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3px;
+  font-family: "Preahvihear", sans-serif;
+}
+
+.diets ul{
+  list-style: none;
+  text-align: center;
+  margin: 0;
+}
+
+.steps{
+  background-color: burlywood;
+  margin-top: 10px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.steps ul {
+  list-style: none;
+  text-align: justify;
+  margin-left: -7%;
+  font-family: "Preahvihear", sans-serif;
+}
+
+@media screen and (max-width: 778px){
+  .principal_con {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+    margin-bottom: 7%;
+    padding-bottom: 6%;
+  }
+  
+  .principal_con span {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  
+  .inter_content {
+    background-color: #EEE0C9;
+    width: 90%;
+    height: auto;
+    margin-top: 14%;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }
+  
+  .summary {
+    background-color: #ADC4CE;
+    width: 94%;
+    font-size: 15.5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 6px;
+    margin-top: 10px;
+    border-radius: 20px;
+  }
+  
+  .inter_content p {
+    text-align: justify;
+  }
+  
+  .container_title {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+    padding: 6px;
+    box-sizing: border-box;
+    object-fit: cover;
+    margin-top: 7px;
+    padding-right: 16px;
+  }
+  
+  .container_title span {
+    font-size: 21px;
+  }
+  
+  .container_title img {
+    border-radius: 20px;
+    width: 230px;
+  }
+  
+  .container_cuisines {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 10px;
+    width: 94%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+  
+  .cuisines {
+    background-color: #ADC4CE;
+    box-sizing: border-box;
+    width: 47%;
+    border-radius: 20px;
+  }
+  
+  .cuisines ul {
+    list-style: none;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .dishTypes {
+    background-color: #ADC4CE;
+    width: 47%;
+    padding: 3px;
+    box-sizing:border-box;
+    border-radius: 20px;
+  }
+  
+  .dishTypes ul {
+    list-style: none;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .diets{
+    background-color: #ADC4CE;
+    margin-top: 10px;
+    width: 94%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3px;
+    box-sizing: border-box;
+    border-radius: 20px;
+  }
+  
+  .diets ul{
+    list-style: none;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .steps{
+    background-color: #ADC4CE;
+    margin-top: 10px;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 7px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    font-size: 15.5px;
+    border-radius: 20px;
+  }
+  
+  .steps ul {
+    list-style: none;
+    text-align: justify;
+    margin-left: -7%;
+  }
+}

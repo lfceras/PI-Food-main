@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo, useState } from "react";
 import { useCallback } from "react";
 import { setCurrentPage } from "../redux/slices/currentPage";
-import { setSearchTerm } from "../redux/slices/searchSlice";
 import { saveRecipes } from "../redux/slices/getRecipes";
 
 const usePaginado = () => {
@@ -11,6 +10,7 @@ const usePaginado = () => {
   const recipesPerPage = 8;
   const [maxPageLimit, setMaxPageLimit] = useState(pageNumberLimit);
   const [minPageLimit, setMinPageLimit] = useState(0);
+  const [loading, setLoading] = useState(false);
   const recipes = useSelector((state) => state.recipes.list);
   const searchTerm = useSelector((state) => state.setSearch.searchTerm);
   const currentPage = useSelector((state) => state.page.page);
@@ -54,11 +54,23 @@ const usePaginado = () => {
   }, [currentPage, dispatch]);
 
   useEffect(() => {
-    dispatch(saveRecipes(searchTerm));
+    if (recipes.length === 0 && !loading) {
+      setLoading(true);
+      dispatch(saveRecipes(searchTerm)).then(() => {
+        setLoading(false);
+      });
+    }
 
     setMaxPageLimit(currentPage + pageNumberLimit);
     setMinPageLimit(currentPage - pageNumberLimit);
-  }, [currentPage, dispatch, pageNumberLimit, searchTerm]);
+  }, [
+    currentPage,
+    dispatch,
+    loading,
+    pageNumberLimit,
+    recipes.length,
+    searchTerm,
+  ]);
 
   return {
     currentRecipes,
@@ -71,6 +83,7 @@ const usePaginado = () => {
     onPrevClick,
     onNextClick,
     pageNumberLimit,
+    loading
   };
 };
 
