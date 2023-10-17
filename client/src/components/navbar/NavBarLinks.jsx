@@ -9,7 +9,7 @@ const NavBarLinks = (props) => {
       <nav className={styles.navigation}>
         <ul className={styles.link}>
           <Link
-            to={"/"}
+            to={"/home"}
             style={{
               textDecoration: "none",
               color: "black",

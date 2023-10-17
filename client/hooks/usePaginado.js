@@ -1,42 +1,42 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useMemo, useState } from "react";
-import { useCallback } from "react";
-import { setCurrentPage } from "../redux/slices/currentPage";
-import { saveRecipes } from "../redux/slices/getRecipes";
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useMemo, useState } from 'react'
+import { useCallback } from 'react'
+import { setCurrentPage } from '../redux/slices/currentPage'
+import { saveRecipes } from '../redux/slices/getRecipes'
 
 const usePaginado = () => {
-  const dispatch = useDispatch();
-  const pageNumberLimit = 2;
-  const recipesPerPage = 8;
-  const [maxPageLimit, setMaxPageLimit] = useState(pageNumberLimit);
-  const [minPageLimit, setMinPageLimit] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const recipes = useSelector((state) => state.recipes.list);
-  const searchTerm = useSelector((state) => state.setSearch.searchTerm);
-  const currentPage = useSelector((state) => state.page.page);
+  const dispatch = useDispatch()
+  const pageNumberLimit = 2
+  const recipesPerPage = 8
+  const [maxPageLimit, setMaxPageLimit] = useState(pageNumberLimit)
+  const [minPageLimit, setMinPageLimit] = useState(0)
+  const [loading, setLoading] = useState(false)
+  const recipes = useSelector((state) => state.recipes.list)
+  const searchTerm = useSelector((state) => state.setSearch.searchTerm)
+  const currentPage = useSelector((state) => state.page.page)
 
   const currentRecipes = useMemo(() => {
-    const indexOfLastRecipe = currentPage * recipesPerPage;
-    const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
-    return recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
-  }, [recipes, currentPage, recipesPerPage]);
+    const indexOfLastRecipe = currentPage * recipesPerPage
+    const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage
+    return recipes.slice(indexOfFirstRecipe, indexOfLastRecipe)
+  }, [recipes, currentPage, recipesPerPage])
 
   // const totalRecipes = recipes.length
   // const totalPages = Math.ceil(totalRecipes / recipesPerPage)
 
   const paginado = useCallback(
     (pageNumber) => {
-      dispatch(setCurrentPage(pageNumber));
+      dispatch(setCurrentPage(pageNumber))
     },
     [dispatch]
-  );
+  )
 
   const onPrevClick = useCallback(() => {
     if (currentPage > 1) {
       // Si currentPage es mayor que 1, podemos realizar el cambio de página hacia atrás.
-      dispatch(setCurrentPage(currentPage - 1));
+      dispatch(setCurrentPage(currentPage - 1))
     }
-  }, [currentPage, dispatch]);
+  }, [currentPage, dispatch])
 
   // const onNextClick = useCallback(() => {
   //   if (currentPage < totalPages ) {
@@ -50,27 +50,27 @@ const usePaginado = () => {
   // },[currentPage, dispatch, maxPageLimit, minPageLimit, totalPages])
 
   const onNextClick = useCallback(() => {
-    dispatch(setCurrentPage(currentPage + 1));
-  }, [currentPage, dispatch]);
+    dispatch(setCurrentPage(currentPage + 1))
+  }, [currentPage, dispatch])
 
   useEffect(() => {
     if (recipes.length === 0 && !loading) {
-      setLoading(true);
+      setLoading(true)
       dispatch(saveRecipes(searchTerm)).then(() => {
-        setLoading(false);
-      });
+        setLoading(false)
+      })
     }
 
-    setMaxPageLimit(currentPage + pageNumberLimit);
-    setMinPageLimit(currentPage - pageNumberLimit);
+    setMaxPageLimit(currentPage + pageNumberLimit)
+    setMinPageLimit(currentPage - pageNumberLimit)
   }, [
     currentPage,
     dispatch,
     loading,
     pageNumberLimit,
     recipes.length,
-    searchTerm,
-  ]);
+    searchTerm
+  ])
 
   return {
     currentRecipes,
@@ -84,7 +84,7 @@ const usePaginado = () => {
     onNextClick,
     pageNumberLimit,
     loading
-  };
-};
+  }
+}
 
-export default usePaginado;
+export default usePaginado

@@ -1,0 +1,153 @@
+.register_cont {
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  width: 75%;
+  min-width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateY(15%);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register_cont .tittle {
+  width: 79%;
+  min-width: 50%;
+  padding: 10px;
+  transform: translate(0%, 35%);
+  font-size: 20px;
+  font-family: "Preahvihear", sans-serif;
+}
+
+.register_form {
+  width: 83%;
+  min-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateX(-2%);
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6%;
+  width: 100%;
+  min-width: 50%;
+  padding: 10px;
+}
+
+.inputs input {
+  height: 35px;
+  font-size: 18px;
+  border-radius: 10px;
+  font-family: "Preahvihear", sans-serif;
+}
+
+.inputs label {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 18px;
+  font-family: "Preahvihear", sans-serif;
+}
+
+.butons{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px;
+}
+
+.butons button{
+  width: 140px;
+  height: 37px;
+  font-size: 16px;
+  border-radius: 7px;
+}
+
+.errors{
+  background: rgb(156, 150, 150) ;
+  color:  rgb(233, 24, 24);
+  border-radius: 7px;
+}
+
+
+@media screen and (max-width: 778px){
+  .register_cont {
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    width: 75%;
+    min-width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateY(15%);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    transform: translateY(6%);
+  }
+  
+  .register_cont .tittle {
+    width: 79%;
+    min-width: 50%;
+    padding: 10px;
+    transform: translate(0%, 35%);
+    font-size: 20px;
+    font-family: "Preahvihear", sans-serif;
+  }
+  
+  .register_form {
+    width: 83%;
+    min-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(-2%);
+  }
+  
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 6%;
+    width: 100%;
+    min-width: 50%;
+    padding: 10px;
+  }
+  
+  .inputs input {
+    height: 35px;
+    font-size: 18px;
+    border-radius: 10px;
+    font-family: "Preahvihear", sans-serif;
+  }
+  
+  .inputs label {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 18px;
+    font-family: "Preahvihear", sans-serif;
+  }
+  
+  .butons{
+      display: flex;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 10px;
+  }
+  
+  .butons button{
+    width: 140px;
+    min-width: 70px;
+    min-height: 18px;
+    min-block-size: 30px;
+    height: 37px;
+    font-size: 16px;
+    border-radius: 7px;
+  }
+}

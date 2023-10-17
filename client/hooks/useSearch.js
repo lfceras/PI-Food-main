@@ -36,7 +36,9 @@ const useSearch = () => {
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      if (recipe.length) {
+      if (recipe.trim() === "") {
+        dispatch(saveRecipes());
+      }else{
         dispatch(saveRecipes(recipe));
       }
     },

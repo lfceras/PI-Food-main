@@ -1,37 +1,40 @@
-import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from '@reduxjs/toolkit'
+import axios from 'axios'
 
 export const allRecipes = createSlice({
-  name: "recipes",
+  name: 'recipes',
   initialState: {
-    list: [],
+    list: []
   },
   reducers: {
     getAllRecipes: (state, action) => {
-      state.list = action.payload.sort((a, b) => a.name.localeCompare(b.name));
-    },
-  },
-});
+      state.list = action.payload.sort((a, b) => a.name.localeCompare(b.name))
+    }
+  }
+})
 
-export const { getAllRecipes } = allRecipes.actions;
+export const { getAllRecipes } = allRecipes.actions
 
-export default allRecipes.reducer;
+export default allRecipes.reducer
 
-export const saveRecipes = (name = null) => {
+export const saveRecipes = (search = null) => {
   return async (dispatch) => {
     try {
-      let response;
-      if (name) {
-        response = await axios.get(
-          `http://localhost:3001/recipes?name=${name}`
-        );
-      } else {
-        response = await axios.get(`http://localhost:3001/recipes`);
+      let response
+      const headers = {
+        'x-access-token': localStorage.getItem('token')
       }
-      const dtos = response.data.data;
-      dispatch(getAllRecipes(dtos));
+      if (search) {
+        response = await axios.get(
+          `http://localhost:3001/recipes?search=${search}`, {headers}
+        )
+      } else {
+        response = await axios.get(`http://localhost:3001/recipes`,{headers})
+      }
+      const dtos = response.data.data
+      dispatch(getAllRecipes(dtos))
     } catch (error) {
-      console.error(error);
+      throw new Error(error)
     }
-  };
-};
+  }
+}

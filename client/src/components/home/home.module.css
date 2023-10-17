@@ -1,6 +1,7 @@
 .testing {
   display: flex;
   flex-direction: column;
+  scroll-behavior: smooth;
 }
 
 .testing h1{

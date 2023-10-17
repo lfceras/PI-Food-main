@@ -1,11 +1,14 @@
-const {DataTypes} = require('sequelize')
+const { DataTypes } = require('sequelize')
 
-module.exports = (sequelize)=> {
-  sequelize.define("role", {
+module.exports = (sequelize) => {
+  const Role = sequelize.define('role', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      unique: true
     }
   })
+  return {
+    Role
+  }
 }

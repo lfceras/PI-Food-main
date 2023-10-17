@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const controllersDiets = require('../../controllers/diets')
+const controllersDiets = require('../../src/controllers/diets')
 
 router.get('/', controllersDiets.getAllDiets)
 

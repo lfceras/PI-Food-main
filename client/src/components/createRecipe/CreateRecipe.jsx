@@ -1,8 +1,16 @@
-
+import NavBar from '../navbar/NavBar'
 
 const CreateRecipe = () => {
   return (
-    <div>CreateRecipe</div>
+    <div>
+      <NavBar />
+      <div>
+        <h1>CreateRecipe</h1>
+      </div>
+      <div>
+        
+      </div>
+    </div>
   )
 }
 

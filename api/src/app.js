@@ -1,35 +1,38 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const routes = require('./routes/recipes.routes');
-const auth = require('./routes/auth.routes');
-const diets = require('./routes/diets.routes');
-const handlers = require('../utils/errors/handlers')
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
+const morgan = require("morgan");
+const cors = require("cors");
+const routes = require("./routes/recipes.routes");
+const auth = require("./routes/auth.routes");
+const diets = require("./routes/diets.routes");
+const handlers = require("../utils/errors/handlers");
+const {createRoles} = require('../src/libs/initialState.js')
 
-require('./db.js');
+require("./db.js");
 
 const server = express();
 
-server.name = 'API';
+createRoles()
 
-server.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-server.use(bodyParser.json({ limit: '50mb' }));
+server.name = "API";
+
+server.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+server.use(bodyParser.json({ limit: "50mb" }));
+server.use(
+  cors({
+    origin: ["http://localhost:3000", "http://127.0.0.1:3000"],
+    credentials: true,
+  })
+);
 server.use(cookieParser());
-server.use(morgan('dev'));
-server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-  next();
-});
+server.use(morgan("dev"));
 
-server.use('/recipes', routes);  
-server.use('/auth', auth);  
-server.use('/diets', diets);  
+server.use("/auth", auth);
+server.use("/recipes", routes);
+server.use("/diets", diets);
 
-server.use('*', handlers.notFoundHandler )
-server.use(handlers.errorHandler)
+server.use("*", handlers.notFoundHandler);
+server.use(handlers.errorHandler);
 
 module.exports = server;
