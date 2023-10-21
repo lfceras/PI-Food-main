@@ -15,12 +15,12 @@ module.exports = async (req, res) => {
 
     return filterTest.length
       ? response(res, 200, filterTest)
-      : response(res, 404, { msg: "Not found" });
+      : response(res, 404, { msg: "Recipe not Found" });
   }
 
   response(res, 200, test2);
   } catch (error) {
-    console.log(error);
+   console.error(error)
   }
   
 };

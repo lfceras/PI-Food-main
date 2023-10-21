@@ -1,0 +1,140 @@
+.contenedor_principal {
+}
+
+@media screen and (max-width: 778px) {
+  .contenedor_principal {
+    transform: translateY(5%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+  }
+
+  .container_form {
+    width: 500px;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(0px);
+    margin-bottom: 5%;
+    border-radius: 10px;
+  }
+
+  .form {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .form label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 17px;
+    font-weight: normal;
+    width: 128px;
+  }
+
+  .form input {
+    width: 250px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid lightblue;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .form select {
+    width: 300px;
+    padding: 3px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border: 1px solid lightblue;
+    outline: none;
+    /* background: transparent; */
+    cursor: pointer;
+    font-size: 13px;
+  }
+
+  .form textarea {
+    display: block;
+    height: 120px;
+    font-size: 18px;
+    border-radius: 15px;
+    resize: none;
+    outline: none;
+  }
+
+  .form p{
+    margin-bottom: 1PX;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .btn {
+    width: 44%;
+    padding: 5px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid lightblue;
+    margin-bottom: 5%;
+  }
+
+  .steps {
+    width: 300px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(1px);
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  .inter{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .steps button {
+    margin-left: 4px;
+    width: 25px;
+    color: red;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .steps button:hover{
+    border: 1px solid;
+    width: 27px;
+    background: rgb(233, 131, 131);
+  }
+
+  .steps p {
+    margin-bottom: 1PX;
+    margin-top: 0;
+    padding: 0;
+  }
+
+  .btn2{
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 5px 25px;
+    margin-top: 5%;
+  }
+
+  .btn2:hover{
+    background: rgb(88, 228, 88);
+  }
+}

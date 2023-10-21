@@ -18,6 +18,7 @@ module.exports = async (req, res, next) => {
 
     next()
   } catch (error) {
+    console.error(error)
     return response(res, 500, { msg: error.msg })
   }
 }

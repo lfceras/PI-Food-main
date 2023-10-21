@@ -37,8 +37,6 @@ const useSearch = () => {
     (e) => {
       e.preventDefault();
       if (recipe.trim() === "") {
-        dispatch(saveRecipes());
-      }else{
         dispatch(saveRecipes(recipe));
       }
     },

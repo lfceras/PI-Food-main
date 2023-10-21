@@ -6,10 +6,8 @@ import usePaginado from "../../../hooks/usePaginado";
 import NavBar from "../navbar/NavBar";
 import Loading from "../loading/Loading";
 import Footer from "../footer/Footer";
-import { useAuthenticated } from "../../../hooks/useAuthenticated"
 
 const Home = () => {
- const isAuthenticaded = useAuthenticated()
   const {
     currentPage,
     currentRecipes,
@@ -23,7 +21,7 @@ const Home = () => {
     recipesPerPage,
     loading,
   } = usePaginado();
-  if(isAuthenticaded){
+   
     return (
       <>
         <NavBar />
@@ -72,6 +70,5 @@ const Home = () => {
     );
 
   }
-};
 
 export default Home;

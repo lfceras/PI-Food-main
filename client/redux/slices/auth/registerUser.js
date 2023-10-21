@@ -15,10 +15,7 @@ export const addUsers = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       const response = await axios.post(NEW_USER_URL, payload)
-      Swal.fire(
-        `${response.data.data.msg}`,
-        'success'
-      )
+      Swal.fire(`${response.data.data.msg}`, 'success')
       return response.data
     } catch (error) {
       return rejectWithValue(error.response.data)

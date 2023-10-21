@@ -54,6 +54,8 @@
     list-style: none;
   }
 
+
+
   .navegation2{
     display: none;
   }
@@ -93,4 +95,18 @@
     margin-bottom: 15px;
     font-size: 20px;
   }
+
+  .link2 {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    transform: translateX(-30px);
+  }
+
+  .link2 li{
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  
+
 }

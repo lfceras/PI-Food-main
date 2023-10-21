@@ -21,20 +21,20 @@ export const saveRecipes = (search = null) => {
   return async (dispatch) => {
     try {
       let response
-      const headers = {
-        'x-access-token': localStorage.getItem('token')
-      }
+      // const headers = {
+      //   'x-access-token': localStorage.getItem('token')
+      // }
       if (search) {
         response = await axios.get(
-          `http://localhost:3001/recipes?search=${search}`, {headers}
-        )
+          `http://localhost:3001/recipes?search=${search}`)
       } else {
-        response = await axios.get(`http://localhost:3001/recipes`,{headers})
+        response = await axios.get(`http://localhost:3001/recipes` )
       }
       const dtos = response.data.data
       dispatch(getAllRecipes(dtos))
     } catch (error) {
-      throw new Error(error)
+      console.error(error)
+      // Swal.fire(`${error.response.data.data.msg}`)
     }
   }
 }

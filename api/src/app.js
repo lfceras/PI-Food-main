@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const routes = require("./routes/recipes.routes");
 const auth = require("./routes/auth.routes");
+const users = require('./routes/users.routes')
 const diets = require("./routes/diets.routes");
 const handlers = require("../utils/errors/handlers");
 const {createRoles} = require('../src/libs/initialState.js')
@@ -29,6 +30,7 @@ server.use(cookieParser());
 server.use(morgan("dev"));
 
 server.use("/auth", auth);
+server.use('/auth', users)
 server.use("/recipes", routes);
 server.use("/diets", diets);
 

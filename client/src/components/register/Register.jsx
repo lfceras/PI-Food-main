@@ -114,7 +114,7 @@ const Register = () => {
             </div>
 
             <div className={styles.butons}>
-              <Link to={'/login'}>
+              <Link to={'/adminhome'}>
                 <button>Cancelar</button>
               </Link>
               <button type='submit'>Registrarse</button>

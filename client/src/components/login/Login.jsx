@@ -5,6 +5,7 @@ import * as Yup from 'yup'
 import { useDispatch } from 'react-redux'
 import { logUser } from '../../../redux/slices/auth/login'
 import { useNavigate } from 'react-router-dom'
+import jwt_decode from 'jwt-decode'
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -25,8 +26,15 @@ const Login = () => {
     }),
     onSubmit: async (valores) => {
       const response = await dispatch(logUser(valores))
+      const token = localStorage.getItem('token')
+      const decoded = jwt_decode(token)
       if (response?.payload?.data?.success) {
-        navigate('/home')
+        if (decoded.roles === 'admin') {
+          navigate('/adminhome')
+        } else {
+          navigate('/home')
+          localStorage.removeItem("token")
+        }
       }
     }
   })
@@ -79,6 +87,10 @@ const Login = () => {
           </button>
           <Link to={'/register'}>
             <button className={styles.btn1}>Register Now!</button>
+          </Link>
+
+          <Link to='/home'>
+            <button>Cancelar</button>
           </Link>
         </form>
       </div>
