@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate()
 
   const formik = useFormik({
-    initialValues: {
+    initialValues: {   
       email: '',
       password: ''
     },
