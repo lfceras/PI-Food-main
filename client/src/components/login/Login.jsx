@@ -33,7 +33,7 @@ const Login = () => {
           navigate('/adminhome')
         } else {
           navigate('/home')
-          localStorage.removeItem("token")
+          localStorage.removeItem('token')
         }
       }
     }
@@ -85,12 +85,8 @@ const Login = () => {
           <button className={styles.btn1} type='submit'>
             Log In
           </button>
-          <Link to={'/register'}>
-            <button className={styles.btn1}>Register Now!</button>
-          </Link>
-
-          <Link to='/home'>
-            <button>Cancelar</button>
+          <Link to={'/home'}>
+            <button className={styles.btn1}>Cancelar</button>
           </Link>
         </form>
       </div>

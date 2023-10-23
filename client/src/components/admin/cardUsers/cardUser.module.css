@@ -1,0 +1,37 @@
+@media screen and (max-width: 778px) {
+  .principal_users{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 250px;
+    height: 250px;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    min-width: 100px;
+    min-height: 100px;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(0px);
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, .5);
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .principal_users h1{
+    margin: 0;
+    padding: 0;
+    font-size: 27px;
+    font-weight: 600;
+  }
+
+  .contenedor_image img{
+    width: 80%;
+    height: auto;
+    cursor: pointer;
+  }
+
+  .contenedor_image img:hover{
+    width: 82%;
+  }
+}
+

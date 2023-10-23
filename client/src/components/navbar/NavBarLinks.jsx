@@ -20,18 +20,6 @@ const NavBarLinks = (props) => {
           </Link>
 
           <Link
-            to={'/create'}
-            style={{
-              textDecoration: 'none',
-              color: 'black',
-              cursor: 'pointer'
-            }}
-            onClick={props.isMobile && props.closeMobileMenu}
-          >
-            <li>Crear Receta</li>
-          </Link>
-
-          <Link
             to={'/about'}
             style={{
               textDecoration: 'none',

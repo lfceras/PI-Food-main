@@ -1,0 +1,17 @@
+.buton{
+  display: flex;
+  padding: 5px 25px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.buton:hover{
+  padding: 6px 26px;
+  background-color: rgb(245, 219, 219);
+}

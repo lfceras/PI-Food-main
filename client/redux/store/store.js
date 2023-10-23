@@ -7,6 +7,7 @@ import recipesById from '../slices/getRecipesById'
 import registerUser from '../slices/auth/registerUser.js'
 import loginUsuer from '../slices/auth/login.js'
 import diets from '../slices/getDiets.js'
+import  users from '../slices/users/getAllUsers.js'
 
 export const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ export const store = configureStore({
     recipesById: recipesById,
     create: registerUser,
     login: loginUsuer,
-    createRecipe: createRecipe
+    createRecipe: createRecipe,
+    users: users
   }
 })

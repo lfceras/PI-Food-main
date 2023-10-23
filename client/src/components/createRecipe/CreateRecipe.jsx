@@ -15,7 +15,7 @@ const CreateRecipe = () => {
     handleSelectedDishType,
     handleDelete,
     handleAddStep,
-    handleCurrentStepChange
+    handleCurrentStepChange,
   } = useSubmit()
 
   const backHome = ()=>{
