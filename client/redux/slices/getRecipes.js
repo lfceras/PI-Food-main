@@ -21,14 +21,14 @@ export const saveRecipes = (search = null) => {
   return async (dispatch) => {
     try {
       let response
-      // const headers = {
-      //   'x-access-token': localStorage.getItem('token')
-      // }
+      const headers = {
+        'x-access-token': localStorage.getItem('token')
+      }
       if (search) {
         response = await axios.get(
-          `http://localhost:3001/recipes?search=${search}`)
+          `http://localhost:3001/recipes?search=${search}`, {headers})
       } else {
-        response = await axios.get(`http://localhost:3001/recipes` )
+        response = await axios.get(`http://localhost:3001/recipes`, {headers} )
       }
       const dtos = response.data.data
       dispatch(getAllRecipes(dtos))

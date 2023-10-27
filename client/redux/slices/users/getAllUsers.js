@@ -23,11 +23,11 @@ export const totalUsers = () => {
       const headers = {
         'x-access-token': localStorage.getItem('token')
       }
-      let response = await axios.get(`http://localhost:3001/auth/users`, { headers})
+      let response = await axios.get(`http://localhost:3001/auth/users`, {
+        headers
+      })
 
       const datas = response?.data.data
-
-      console.log(datas)
 
       dispatch(getAllUsers(datas))
     } catch (error) {

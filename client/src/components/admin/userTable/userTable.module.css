@@ -1,0 +1,85 @@
+@media screen and (max-width: 778px) {
+  .container_table {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+
+  .table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .table th {
+    border: none;
+    text-align: center;
+    padding: 8px;
+  }
+
+  .table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    border-radius: 5px;
+  }
+
+  .table tr:nth-child(even) {
+    background-color: #8b8b8b;
+  }
+
+  .butons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .admin {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .admin:hover {
+    background-color: #d4d0d0;
+  }
+
+  .new_user {
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .new_user:hover {
+    background-color: #d4d0d0;
+  }
+
+.update_button{
+  padding: 4px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+.update_button:hover{
+  background-color: rgb(97, 243, 97);
+}
+
+  .delete_button {
+    padding: 4px 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .delete_button:hover {
+    background-color: #e74444;
+  }
+
+
+}

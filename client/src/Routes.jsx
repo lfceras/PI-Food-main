@@ -12,21 +12,26 @@ import HomeAdmin from './components/admin/homeAdmin/HomeAdmin'
 import UserTable from './components/admin/userTable/UserTable'
 import Register from './components/register/Register'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
-
+import ProtectedRouteAdmin from './components/ProtectedRouteAdmin'
+import UpdateUser from './components/admin/updateUser/UpdateUser'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path='/login' element={<Login />} />
-      <Route path='/home' element={<Home />} />
-      <Route path='/about' element={<AboutUs />} />
-      <Route path='/detalles/:id' element={<Detalles />} />
+      <Route path='/register' element={<Register />} />
 
       <Route path='/' element={<ProtectedRoute />}>
+        <Route path='/home' element={<Home />} />
+        <Route path='/about' element={<AboutUs />} />
+        <Route path='/detalles/:id' element={<Detalles />} />
+      </Route>
+
+      <Route path='/' element={<ProtectedRouteAdmin />}>
         <Route path='/adminhome' element={<HomeAdmin />} />
         <Route path='/users' element={<UserTable />} />
+        <Route path='/updateuser/:id' element={<UpdateUser/>}/>
         <Route path='/create' element={<CreateRecipe />} />
-        <Route path='/register' element={<Register />} />
       </Route>
     </>
   )

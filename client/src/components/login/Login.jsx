@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate()
 
   const formik = useFormik({
-    initialValues: {   
+    initialValues: {
       email: '',
       password: ''
     },
@@ -33,7 +33,6 @@ const Login = () => {
           navigate('/adminhome')
         } else {
           navigate('/home')
-          localStorage.removeItem('token')
         }
       }
     }
@@ -85,8 +84,8 @@ const Login = () => {
           <button className={styles.btn1} type='submit'>
             Log In
           </button>
-          <Link to={'/home'}>
-            <button className={styles.btn1}>Cancelar</button>
+          <Link to={'/register'}>
+            <button className={styles.btn1}>Crear Cuenta</button>
           </Link>
         </form>
       </div>

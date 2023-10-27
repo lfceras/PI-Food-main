@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import Swal from 'sweetalert2'
-import jwt_decode from 'jwt-decode'
+// import jwt_decode from 'jwt-decode'
 
 const LOG_USER = `http://localhost:3001/auth/login`
 const initialState = {
@@ -14,20 +14,25 @@ export const logUser = createAsyncThunk('users/logUser', async (payload) => {
   try {
     const response = await axios.post(LOG_USER, payload)
     localStorage.setItem('token', response.data?.data.token)
-    const token = localStorage.getItem('token')
-    const decoded = jwt_decode(token)
+    // const token = localStorage.getItem('token')
+    // const decoded = jwt_decode(token)
     
-    if(decoded.roles === "admin"){
     Swal.fire({
       icon: 'success',
       title: `${response.data.data.msg}`
     })
-    }else{
-      Swal.fire({
-        icon: 'error',
-        title: `No role admin found`
-      })
-    }
+
+    // if(decoded.roles === "admin"){
+    // Swal.fire({
+    //   icon: 'success',
+    //   title: `${response.data.data.msg}`
+    // })
+    // }else{
+    //   Swal.fire({
+    //     icon: 'error',
+    //     title: `No role admin found`
+    //   })
+    // }
 
     return response.data
   } catch (error) {

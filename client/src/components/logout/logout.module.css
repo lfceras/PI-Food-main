@@ -1,6 +1,6 @@
 .buton{
   display: flex;
-  padding: 5px 25px;
+  padding: 5px 20px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -12,6 +12,6 @@
 }
 
 .buton:hover{
-  padding: 6px 26px;
+  padding: 6px 21px;
   background-color: rgb(245, 219, 219);
 }

@@ -7,7 +7,11 @@ import recipesById from '../slices/getRecipesById'
 import registerUser from '../slices/auth/registerUser.js'
 import loginUsuer from '../slices/auth/login.js'
 import diets from '../slices/getDiets.js'
-import  users from '../slices/users/getAllUsers.js'
+import users from '../slices/users/getAllUsers.js'
+import roles from "../slices/users/getRoles.js"
+import deleteUSer from '../slices/users/deleteUser.js'
+import userById from "../slices/users/getUserById.js"
+import updateUser from "../slices/users/updateUser.js"
 
 export const store = configureStore({
   reducer: {
@@ -19,6 +23,10 @@ export const store = configureStore({
     create: registerUser,
     login: loginUsuer,
     createRecipe: createRecipe,
-    users: users
+    users: users,
+    roles: roles,
+    deleteUSer: deleteUSer,
+    userById: userById,
+    updateUser: updateUser
   }
 })

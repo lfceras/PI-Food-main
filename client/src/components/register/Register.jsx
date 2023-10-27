@@ -1,19 +1,31 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import styles from './register.module.css'
 import { addUsers } from '../../../redux/slices/auth/registerUser'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useNavigate, Link } from 'react-router-dom'
+import { useCallback, useEffect } from 'react'
+import { totalRoles } from '../../../redux/slices/users/getRoles'
+// import jwt_decode from 'jwt-decode'
 
 const Register = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const roles = useSelector((state) => state.roles.roleList)
+
+  const token = localStorage.getItem('token')
+
+  useEffect(() => {
+    dispatch(totalRoles())
+  }, [dispatch])
+
   const formik = useFormik({
     initialValues: {
       name: '',
       username: '',
       email: '',
-      password: ''
+      password: '',
+      roles: ['user']
     },
     validationSchema: Yup.object({
       name: Yup.string().required('Este campo es obligatorio'),
@@ -28,26 +40,39 @@ const Register = () => {
     onSubmit: async (valores) => {
       try {
         await dispatch(addUsers(valores))
-        navigate('/login')
+        if (!token) {
+          navigate('/login')
+        } else {
+          navigate('/users')
+        }
       } catch (error) {
         console.error('aca el error', error)
       }
     }
   })
 
+  const handleSelectedRole = useCallback(
+    (e) => {
+      const slectedRole = e.target.value
+      formik.setFieldValue('roles', [slectedRole])
+    },
+    [formik]
+  )
+
   return (
     <>
       <div className={styles.register_cont}>
-        <label className={styles.tittle}>Registrate</label>
-        <div className={styles.register_form}>
+        <h1>Registrate</h1>
+        <div className={styles.container2_form}>
           <form
             onSubmit={(e) => {
               e.preventDefault()
               formik.handleSubmit(e)
             }}
+            className={styles.form_register}
           >
-            <div className={styles.inputs}>
-              <label>Nombre completo</label>
+            <label>
+              Nombre completo
               <input
                 type='text'
                 name='name'
@@ -56,14 +81,16 @@ const Register = () => {
                 onBlur={formik.handleBlur}
                 placeholder='Ingresa tu nombre'
               />
+            </label>
 
-              {formik.touched.name && formik.errors.name ? (
-                <div className={styles.errors}>
-                  <p>{formik.errors.name}</p>
-                </div>
-              ) : null}
+            {formik.touched.name && formik.errors.name ? (
+              <div className={styles.errors}>
+                <p>{formik.errors.name}</p>
+              </div>
+            ) : null}
 
-              <label>Username</label>
+            <label>
+              Username
               <input
                 type='text'
                 name='username'
@@ -72,14 +99,16 @@ const Register = () => {
                 onBlur={formik.handleBlur}
                 placeholder='Ingresa tu nombre de usuario'
               />
+            </label>
 
-              {formik.touched.username && formik.errors.username ? (
-                <div className={styles.errors}>
-                  <p>{formik.errors.username}</p>
-                </div>
-              ) : null}
+            {formik.touched.username && formik.errors.username ? (
+              <div className={styles.errors}>
+                <p>{formik.errors.username}</p>
+              </div>
+            ) : null}
 
-              <label>Correo electronico</label>
+            <label>
+              Correo electronico
               <input
                 type='text'
                 name='email'
@@ -88,14 +117,16 @@ const Register = () => {
                 onBlur={formik.handleBlur}
                 placeholder='Ingresa tu email'
               />
+            </label>
 
-              {formik.touched.email && formik.errors.email ? (
-                <div className={styles.errors}>
-                  <p>{formik.errors.email}</p>
-                </div>
-              ) : null}
+            {formik.touched.email && formik.errors.email ? (
+              <div className={styles.errors}>
+                <p>{formik.errors.email}</p>
+              </div>
+            ) : null}
 
-              <label>Contraseña</label>
+            <label>
+              Contraseña
               <input
                 type='password'
                 name='password'
@@ -105,19 +136,47 @@ const Register = () => {
                 onBlur={formik.handleBlur}
                 placeholder='Ingresa tu password'
               />
+            </label>
 
-              {formik.touched.password && formik.errors.password ? (
-                <div className={styles.errors}>
-                  <p>{formik.errors.password}</p>
-                </div>
-              ) : null}
-            </div>
+            {formik.touched.password && formik.errors.password ? (
+              <div className={styles.errors}>
+                <p>{formik.errors.password}</p>
+              </div>
+            ) : null}
+
+            {token === null ? (
+              ''
+            ) : (
+              <>
+                <label htmlFor=''>Roles</label>
+                <select
+                  name='roles'
+                  id='roles'
+                  onChange={(e) => handleSelectedRole(e)}
+                >
+                  <option value=''>Selecciona un rol</option>
+                  {roles.map((el) => (
+                    <option value={el.name} key={el.id}>
+                      {el.name}
+                    </option>
+                  ))}
+                </select>
+              </>
+            )}
 
             <div className={styles.butons}>
-              <Link to={'/adminhome'}>
-                <button>Cancelar</button>
-              </Link>
-              <button type='submit'>Registrarse</button>
+              {token === null ? (
+                <Link to={'/login'}>
+                  <button className={styles.btn_user}>Cancelar</button>
+                </Link>
+              ) : (
+                <Link to={'/users'}>
+                  <button className={styles.btn_user}>Cancelar</button>
+                </Link>
+              )}
+              <button type='submit' className={styles.btn_user}>
+                Registrarse
+              </button>
             </div>
           </form>
         </div>

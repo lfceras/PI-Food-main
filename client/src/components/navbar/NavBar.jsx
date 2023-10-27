@@ -4,13 +4,12 @@ import styles from './navbar.module.css'
 import logo from '../../assets/cooking.png'
 import SearchBar from '../searchbar/SearchBar'
 import { Link, useParams } from 'react-router-dom'
+import Logout from '../logout/Logout'
 
-// eslint-disable-next-line react/prop-types
 const NavBar = () => {
   const { id } = useParams()
 
   const currentPath = window.location.pathname
-  // console.log(currentPath);
 
   const shouldShowSearchBar = currentPath !== `/detalles/${id}`
 
@@ -33,8 +32,8 @@ const NavBar = () => {
           </div>
         )}
 
-        <Link to='/login'>
-          <button>Login</button>
+        <Link to='/login' style={{textDecoration:"none"}}>
+          <Logout/>
         </Link>
       </header>
     </div>
