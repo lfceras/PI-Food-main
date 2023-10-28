@@ -41,7 +41,7 @@ export const useSubmit = () => {
     }),
     onSubmit: async (valores) => {
       await dispatch(addRecipe(valores))
-      navigate('/admihome')
+      navigate('/recipes')
     }
   })
 

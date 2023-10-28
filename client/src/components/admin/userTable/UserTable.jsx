@@ -9,7 +9,7 @@ import Swal from 'sweetalert2'
 const UserTable = () => {
   const dispatch = useDispatch()
   const users = useSelector((state) => state.users.userList)
-  // console.log(users.map(el => el.id));
+  console.log(typeof users)
 
   useEffect(() => {
     dispatch(totalUsers())
@@ -25,7 +25,7 @@ const UserTable = () => {
         icon: 'warning'
       })
       // console.log(result);
-  
+
       if (result.isConfirmed) {
         await dispatch(deleteUserAsync(id))
         dispatch(totalUsers())
@@ -51,7 +51,13 @@ const UserTable = () => {
       </div>
       <div className={styles.container_table}>
         {!users ? (
-          <div>Not found users</div>
+          <tbody>
+            <tr>
+              <td colSpan='2' style={{ textAlign: 'center', fontWeight: 600 }}>
+                Sin usuarios aún
+              </td>
+            </tr>
+          </tbody>
         ) : (
           <table className={styles.table}>
             <thead>

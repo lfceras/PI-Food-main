@@ -1,4 +1,3 @@
-import NavBar from '../navbar/NavBar'
 import styles from './createRecipe.module.css'
 import useRecipes from '../../../hooks/useRecipes'
 import { useSubmit } from '../../../hooks/useSubmit'
@@ -19,12 +18,11 @@ const CreateRecipe = () => {
   } = useSubmit()
 
   const backHome = ()=>{
-    navigate('/adminhome')
+    navigate('/recipes')
   }
 
   return (
     <div>
-      <NavBar />
       <div className={styles.contenedor_principal}>
         <h1>CreateRecipe</h1>
         <div>

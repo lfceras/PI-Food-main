@@ -1,8 +1,7 @@
-.contenedor_principal {
-}
 
-@media screen and (max-width: 778px) {
-  .contenedor_principal {
+
+@media screen and (max-width: 778px){
+  .contenedor_principal_update{
     transform: translateY(-1%);
     display: flex;
     align-items: center;
@@ -11,7 +10,7 @@
     height: auto;
   }
 
-  .container_form {
+  .container_form_update{
     width: 500px;
     background-color: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(0px);
@@ -19,7 +18,7 @@
     border-radius: 10px;
   }
 
-  .form {
+  .form_update{
     display: flex;
     width: 100%;
     height: auto;
@@ -28,7 +27,7 @@
     flex-direction: column;
   }
 
-  .form label {
+  .form_update label{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,7 +37,7 @@
     width: 128px;
   }
 
-  .form input {
+  .form_update input {
     width: 250px;
     height: 25px;
     border-radius: 5px;
@@ -51,7 +50,7 @@
     font-size: 15px;
   }
 
-  .form select {
+  .form_update select {
     width: 300px;
     padding: 3px;
     border-radius: 8px;
@@ -64,7 +63,7 @@
     font-size: 13px;
   }
 
-  .form textarea {
+  .form_update textarea {
     display: block;
     height: 120px;
     font-size: 18px;
@@ -73,13 +72,13 @@
     outline: none;
   }
 
-  .form p{
+  .form_update p{
     margin-bottom: 1PX;
     margin-top: 0;
     padding: 0;
   }
 
-  .btn {
+  .btn_update{
     width: 44%;
     padding: 5px;
     border-radius: 8px;
@@ -90,42 +89,7 @@
     margin-bottom: 5%;
   }
 
-  .steps {
-    width: 300px;
-    margin-bottom: 15px;
-    backdrop-filter: blur(1px);
-    background: transparent;
-    border-radius: 10px;
-  }
-
-  .inter{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .steps button {
-    margin-left: 4px;
-    width: 25px;
-    color: red;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-  }
-
-  .steps button:hover{
-    border: 1px solid;
-    width: 27px;
-    background: rgb(233, 131, 131);
-  }
-
-  .steps p {
-    margin-bottom: 1PX;
-    margin-top: 0;
-    padding: 0;
-  }
-
-  .btn2{
+  .btn2_update{
     border-radius: 8px;
     border: none;
     cursor: pointer;
@@ -134,7 +98,7 @@
     margin-top: 5%;
   }
 
-  .btn2:hover{
+  .btn2_update:hover{
     background: rgb(88, 228, 88);
   }
 }
