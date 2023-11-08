@@ -5,8 +5,7 @@ const recipeSchema = z.object({
     invalid_type_error: "name deberia ser un string",
     required_error: "name es requerido"
   })
-  .trim()
-  .min(5),
+  .trim(),
   image: z.string({
     required_error: "image es requerido"
   })

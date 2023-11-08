@@ -1,13 +1,19 @@
 const { Recipe } = require('../../db')
 const { response } = require('../../../utils')
+const { v4: uuidv4, validate: validateUUID } = require('uuid')
+const httpStatus = require('http-status-codes')
 
 module.exports = async (req, res) => {
   const { id } = req.params
 
+  if (!validateUUID(id)) {
+    return response(res, httpStatus.StatusCodes.BAD_REQUEST, { msg: 'ID de receta no valido' })
+  }
+  
   const recipeId = await Recipe.findByPk(id)
 
-  if(!recipeId) {
-    return response(res, 404, { msg: 'Recipe not found' });
+  if (!recipeId) {
+    return response(res, httpStatus.StatusCodes.NOT_FOUND, { msg: 'Recipe not found' })
   }
 
   await Recipe.destroy({
@@ -15,5 +21,5 @@ module.exports = async (req, res) => {
       id: id
     }
   })
-  return response(res, 200, { msg: 'Receta eliminada' })
+  return response(res, httpStatus.StatusCodes.OK, { msg: 'Receta eliminada' })
 }

@@ -17,10 +17,12 @@ module.exports = (sequelize) => {
         unique: true
       },
       image: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
       },
       summary: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false
       },
       healthScore: {
         type: DataTypes.INTEGER,

@@ -1,12 +1,12 @@
 const { Recipe, Diet } = require('../../db.js')
 const { response } = require('../../../utils/index.js')
 const { validateRecipe } = require('../../validations/newRecipeValidation .js')
+const httpStatus = require('http-status-codes')
 
 module.exports = async (req, res) => {
-  // const { name, image, summary, healthScore, steps, diets, cuisines, dishTypes } = req.body;
   const result = validateRecipe(req.body)
   try {
-    if (result.error) return response(res, 400, result.error)
+    if (result.error) return response(res,httpStatus.StatusCodes.BAD_REQUEST, result.error)
 
     const { name, diets } = result.data
     const existingRecipe = await Recipe.findOne({
@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
     })
 
     if (existingRecipe) {
-      return response(res, 400, { msg: 'La receta ya existe en la DB' })
+      return response(res, httpStatus.StatusCodes.BAD_REQUEST, { msg: 'La receta ya existe en la DB' })
     }
 
     const recipeCreated = await Recipe.create({
@@ -28,11 +28,12 @@ module.exports = async (req, res) => {
 
     await recipeCreated.addDiet(diet)
 
-    return response(res, 200, {
-      msg: `Recipe ${recipeCreated.name} has been created succesfully`
+    return response(res, httpStatus.StatusCodes.CREATED, {
+      msg: `Recipe ${recipeCreated.name} has been created succesfully`,
+      recipeCreated
     })
   } catch (error) {
     console.error(error)
-    return response(res, 500, { msg: 'Error during creation of recipe' })
+    return response(res,  httpStatus.StatusCodes.INTERNAL_SERVER_ERROR, { msg: 'Error during creation of recipe' })
   }
 }

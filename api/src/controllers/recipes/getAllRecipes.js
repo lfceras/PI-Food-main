@@ -1,28 +1,26 @@
-const mergeDB = require("../../helpers/recipes");
-const { response } = require("../../../utils");
+const mergeDB = require('../../helpers/recipes')
+const { response } = require('../../../utils')
+const httpStatus = require('http-status-codes')
 
 module.exports = async (req, res) => {
   try {
-    const { search, healthScore, limit, offset } = req.query;
- 
-  const test2 = await mergeDB();
-  let filterTest = test2;
+    const { search } = req.query
 
-  if (search) {
-    filterTest = test2.filter((el) =>
-      el.name.toLowerCase().includes(search.toLowerCase())
-    );
+    const test2 = await mergeDB()
+    let filterTest = test2
 
-    return filterTest.length
-      ? response(res, 200, filterTest)
-      : response(res, 404, { msg: "Recipe not Found" });
-  }
+    if (search) {
+      filterTest = test2.filter((el) =>
+        el.name.toLowerCase().includes(search.toLowerCase())
+      )
 
-  response(res, 200, test2);
+      return filterTest.length
+        ? response(res, httpStatus.StatusCodes.OK, filterTest)
+        : response(res, httpStatus.StatusCodes.NOT_FOUND, { msg: 'Recipe not Found' })
+    }
+
+    return response(res, httpStatus.StatusCodes.OK, test2)
   } catch (error) {
-   console.error(error)
+    console.error(error)
   }
-  
-};
-
-
+}

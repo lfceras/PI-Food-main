@@ -30,12 +30,6 @@ module.exports = async (req, res) => {
       }
     )
 
-    // if (datos[0] === 0) {
-    //   return response(res, 404, {
-    //     msg: 'No se encontró el usuario o no se realizó ninguna actualización'
-    //   })
-    // }
-
     return response(res, 200, datos)
   } catch (error) {
     console.error(error)

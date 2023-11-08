@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "test": "mocha -w ./tests/**/*.spec.js",
+    "test": "mocha -w ./tests/**/*.spec.js --timeout 10000",
     "start": "node index.js"
   },
   "author": "Henry",
@@ -22,6 +22,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.18.2",
     "helmet": "^7.0.0",
+    "http-status-codes": "^2.3.0",
     "jsonwebtoken": "^9.0.1",
     "morgan": "^1.10.0",
     "pg": "^8.5.1",

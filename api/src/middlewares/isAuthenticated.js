@@ -7,7 +7,7 @@ module.exports = async (req, res, next) => {
   try {
     const token = req.headers['x-access-token']
 
-    if (!token) return response(res, 403, { msg: 'No token provided' })
+    if (!token) return response(res, 401, { msg: 'No token provided' })
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET)
     req.userId = decoded.id
@@ -19,6 +19,6 @@ module.exports = async (req, res, next) => {
     next()
   } catch (error) {
     console.error(error)
-    return response(res, 500, { msg: error.msg })
+    return response(res, 403, { msg: error.msg })
   }
 }
