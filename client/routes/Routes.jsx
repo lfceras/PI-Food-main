@@ -3,24 +3,24 @@ import {
   createBrowserRouter,
   createRoutesFromElements
 } from 'react-router-dom'
-import Home from './components/home/Home'
-import AboutUs from './components/aboutUs/AboutUs'
-import CreateRecipe from './components/createRecipe/CreateRecipe'
-import Login from './components/login/Login'
-import Detalles from './components/detalles/Detalles'
-import HomeAdmin from './components/admin/homeAdmin/HomeAdmin'
-import UserTable from './components/admin/userTable/UserTable'
-import Register from './components/register/Register'
-import ProtectedRoute from './components/ProtectedRoute.jsx'
-import ProtectedRouteAdmin from './components/ProtectedRouteAdmin'
-import UpdateUser from './components/admin/updateUser/UpdateUser'
-import RecipeTable from './components/admin/recipeTable/RecipeTable'
-import UpdateRecipe from './components/admin/updateRecipe/UpdateRecipe'
+import Home from '../src/components/home/Home.jsx'
+import AboutUs from '../src/components/aboutUs/AboutUs.jsx'
+import CreateRecipe from '../src/components/createRecipe/CreateRecipe.jsx'
+import Login from '../src/components/login/Login.jsx'
+import Detalles from '../src/components/detalles/Detalles.jsx'
+import HomeAdmin from '../src/components/admin/homeAdmin/HomeAdmin.jsx'
+import UserTable from '../src/components/admin/userTable/UserTable.jsx'
+import Register from '../src/components/register/Register.jsx'
+import ProtectedRoute from './ProtectedRoute.jsx'
+import ProtectedRouteAdmin from './ProtectedRouteAdmin.jsx'
+import UpdateUser from '../src/components/admin/updateUser/UpdateUser.jsx'
+import RecipeTable from '../src/components/admin/recipeTable/RecipeTable.jsx'
+import UpdateRecipe from '../src/components/admin/updateRecipe/UpdateRecipe.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path='/login' element={<Login />} />
+      <Route path='/' element={<Login />} />
       <Route path='/register' element={<Register />} />
 
       <Route path='/' element={<ProtectedRoute />}>

@@ -166,7 +166,7 @@ const Register = () => {
 
             <div className={styles.butons}>
               {token === null ? (
-                <Link to={'/login'}>
+                <Link to={'/'}>
                   <button className={styles.btn_user}>Cancelar</button>
                 </Link>
               ) : (

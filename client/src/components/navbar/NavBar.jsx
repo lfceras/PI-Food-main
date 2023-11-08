@@ -32,7 +32,7 @@ const NavBar = () => {
           </div>
         )}
 
-        <Link to='/login' style={{textDecoration:"none"}}>
+        <Link to='/' style={{textDecoration:"none"}}>
           <Logout/>
         </Link>
       </header>

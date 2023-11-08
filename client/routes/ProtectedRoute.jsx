@@ -1,4 +1,4 @@
-import { useAuthenticated } from '../../hooks/useAuthenticated'
+import { useAuthenticated } from '../hooks/useAuthenticated'
 import { Navigate, Outlet } from 'react-router-dom'
 
 const ProtectedRoute = () => {

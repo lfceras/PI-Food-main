@@ -9,7 +9,6 @@ import Swal from 'sweetalert2'
 const UserTable = () => {
   const dispatch = useDispatch()
   const users = useSelector((state) => state.users.userList)
-  console.log(typeof users)
 
   useEffect(() => {
     dispatch(totalUsers())

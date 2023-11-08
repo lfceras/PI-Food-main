@@ -13,7 +13,6 @@ module.exports = async (req, res) => {
   if (result.error)
     return response(res, httpStatus.StatusCodes.BAD_REQUEST, result.error)
 
-  
   try {
     if (!validateUUID(id)) {
       return response(res, httpStatus.StatusCodes.BAD_REQUEST, {

@@ -29,21 +29,21 @@ const Detalles = () => {
         <div className={styles.principal_con}>
           <div className={styles.inter_content}>
             <div className={styles.container_title}>
-              <span>{detalles[0]?.name}</span>
-              <img src={detalles[0]?.image} alt='Not found' />
+              <span>{detalles?.name}</span>
+              <img src={detalles?.image} alt='Not found' />
             </div>
 
             <div className={styles.summary}>
-              <p>{detalles[0]?.summary}</p>
+              <p>{detalles?.summary}</p>
             </div>
 
             <div className={styles.container_cuisines}>
               <div className={styles.cuisines}>
                 <span>Cuisines</span>
                 <br />
-                {detalles[0]?.cuisines.length === 0
+                {detalles?.cuisines.length === 0
                   ? 'No hay cocinas asociadas'
-                  : detalles[0]?.cuisines.map((el, index) => (
+                  : detalles?.cuisines.map((el, index) => (
                       <ul key={index}>
                         <li>{el}</li>
                       </ul>
@@ -52,8 +52,8 @@ const Detalles = () => {
 
               <div className={styles.dishTypes}>
                 <span>DishTypes</span>
-                {detalles[0]?.dishTypes &&
-                  detalles[0]?.dishTypes.map((el, index) => (
+                {detalles?.dishTypes &&
+                  detalles?.dishTypes.map((el, index) => (
                     <ul key={index}>
                       <li>{el}</li>
                     </ul>
@@ -63,8 +63,8 @@ const Detalles = () => {
 
             <div className={styles.diets}>
               <span>Diets</span>
-              {Array.isArray(detalles[0]?.diets) &&
-                detalles[0]?.diets.map((el, index) => (
+              {Array.isArray(detalles?.diets) &&
+                detalles?.diets.map((el, index) => (
                   <ul key={index}>
                     <li>
                       {index + 1} -{' '}
@@ -75,8 +75,8 @@ const Detalles = () => {
             </div>
             <div className={styles.steps}>
               <span>Steps</span>
-              {Array.isArray(detalles[0]?.steps) &&
-                detalles[0]?.steps.map((el, index) => (
+              {Array.isArray(detalles?.steps) &&
+                detalles?.steps.map((el, index) => (
                   <ul key={index}>
                     <li>
                       {index + 1} -{' '}
